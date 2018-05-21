@@ -3,9 +3,11 @@
 Instructions:
 
 * [Deploy in local VMs using Vagrant](docs/deploy-vagrant.md)
+* [Deploy in Nutanix hyperconverged infrastructure using Ansible](docs/deploy-nutanix.md)
 * [Deploy in Softlayer VMs using Ansible](docs/deploy-softlayer-ansible.md)
 * [Deploy in Softlayer VMs using Terraform](docs/deploy-softlayer-terraform.md)
 * [Deploy in OpenStack using Terraform](docs/deploy-openstack-terraform.md)
+* [Deploy in PowerVC using Terraform](docs/deploy-powervc-terraform.md)
 * [Optional - add NFS dynamic provsioner to your cluster](docs/deploy-nfs-provisioner.md)
 
 
