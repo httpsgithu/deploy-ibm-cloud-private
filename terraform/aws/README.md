@@ -76,8 +76,8 @@ See [Terraform documentation](https://www.terraform.io/intro/getting-started/var
 6. Provide AWS credentials using environment variables:
 
    ```bash
-   export AWS_ACCESS_KEY_ID=AKIAADGHASKDHGAKSDHGKASDHGK
-   export AWS_SECRET_ACCESS_KEY=BAzxcvq^.asdgaljlajdfl235bads
+   export AWS_ACCESS_KEY_ID=ENTER_KEY_HERE
+   export AWS_SECRET_ACCESS_KEY=ENTER_KEY_HERE
    ```
 
 7. Initialize Terraform using this command.  This will download all dependent modules, including the [ICP installation module](https://github.com/ibm-cloud-architecture/terraform-module-icp-deploy).
@@ -171,7 +171,7 @@ An IAM role is created in AWS and attached to each EC2 instance with the followi
 Additionally, we add `S3FullAccess` policy so that the IAM role can get installation images out of an S3 bucket and back up the `/opt/ibm/cluster` directory to an S3 bucket after installation.
 
 #### VPC
-- VPC with an internet gateway   
+- VPC with an internet gateway
 - All ICP nodes are placed in private subnets, each with their own NAT Gateway.
   - outbound Internet access from private subnet through NAT Gateway
 
@@ -183,7 +183,7 @@ Additionally, we add `S3FullAccess` policy so that the IAM role can get installa
 #### Security Group
 Note that the below are the defaults, and each security group can have its whitelist be configured in `terraform.tfvars`.
 - `icp-bastion`
-  - allow 22 from 0.0.0.0/0   
+  - allow 22 from 0.0.0.0/0
 - `icp-default`
   - allow ALL traffic from itself *(all nodes are in this security group)*
   - *(this is tagged with the cluster id for Kubernetes ELB integration)*
@@ -192,16 +192,16 @@ Note that the below are the defaults, and each security group can have its white
 - `icp-proxy-443`
   - allow from 0.0.0.0/0 on port 443
 - `icp-master-9443`
-  - allow from internal on port 9443 (auth service)   
+  - allow from internal on port 9443 (auth service)
 - `icp-master-8500`
-  - allow from 0.0.0.0/0 on port 8500 (image registry)   
-  - allow from internal on port 8001 (kube api)   
+  - allow from 0.0.0.0/0 on port 8500 (image registry)
+  - allow from internal on port 8001 (kube api)
 - `icp-master-8443`
-  - allow from 0.0.0.0/0 on port 8443 (master UI)   
-  - allow from internal on port 8001 (kube api)   
+  - allow from 0.0.0.0/0 on port 8443 (master UI)
+  - allow from internal on port 8001 (kube api)
 - `icp-master-8001`
-  - allow from 0.0.0.0/0 on port 8001 (kube api)   
-  - allow from internal on port 8001 (kube api)   
+  - allow from 0.0.0.0/0 on port 8001 (kube api)
+  - allow from internal on port 8001 (kube api)
 - `icp-workers`
   - allow all traffic from self (future use)
 - `icp-management`
@@ -213,7 +213,7 @@ Note that the below are the defaults, and each security group can have its white
 
 #### Elastic File System Storage
 If more than one master node is provisioned, EFS mounts are created for shared storage:
-- two volumes (both at least 20GB)   
+- two volumes (both at least 20GB)
   - /var/lib/registry (image registry)
   - /var/lib/icp/audit (audit logs)
 
